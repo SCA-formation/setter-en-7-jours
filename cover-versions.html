@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Covers — Setter en 7 Jours</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#111;display:flex;flex-direction:column;align-items:center;gap:60px;padding:60px 40px;font-family:'Inter',sans-serif}
+.label{color:#666;font-size:13px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px;text-align:center}
+.cover-wrap{display:flex;flex-direction:column;align-items:center}
+
+/* ══ VERSION A ══ */
+.cover-a{
+  width:1280px;height:720px;position:relative;overflow:hidden;
+  background:#05050a;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:12px;
+}
+.cover-a::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 900px 600px at 110% -10%, rgba(139,92,246,.25), transparent 60%),
+    radial-gradient(ellipse 700px 500px at -10% 110%, rgba(59,130,246,.12), transparent 60%);
+}
+.cover-a .noise{
+  position:absolute;inset:0;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size:200px 200px;
+}
+.cover-a .inner{
+  position:relative;z-index:1;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  gap:0;
+}
+.cover-a .badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 16px;border-radius:100px;
+  border:1px solid rgba(139,92,246,.4);
+  background:rgba(139,92,246,.08);
+  font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:#A855F7;margin-bottom:28px;
+}
+.cover-a .badge-dot{
+  width:5px;height:5px;border-radius:50%;background:#8B5CF6;
+  box-shadow:0 0 8px rgba(139,92,246,1);
+}
+.cover-a h1{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:86px;
+  color:#fff;line-height:1;letter-spacing:-.02em;margin-bottom:18px;
+}
+.cover-a h1 em{
+  font-style:normal;
+  background:linear-gradient(100deg,#6366F1,#8B5CF6,#A855F7);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.cover-a .sub{
+  font-size:22px;color:rgba(255,255,255,.45);font-weight:400;
+  margin-bottom:44px;letter-spacing:.01em;
+}
+.cover-a .pills{
+  display:flex;gap:10px;flex-wrap:wrap;justify-content:center;
+  margin-bottom:44px;
+}
+.cover-a .pill{
+  padding:7px 16px;border-radius:8px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  font-size:12px;color:rgba(255,255,255,.5);
+  font-weight:500;letter-spacing:.04em;
+}
+.cover-a .price-block{
+  display:flex;align-items:center;gap:16px;
+}
+.cover-a .price{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:52px;color:#fff;
+}
+.cover-a .price-note{
+  font-size:12px;color:rgba(255,255,255,.3);text-align:left;line-height:1.5;
+}
+.cover-a .price-note strong{color:rgba(255,87,87,.7)}
+.cover-a .line{
+  position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,#6366F1,#8B5CF6,#A855F7,transparent);
+}
+
+/* ══ VERSION B ══ */
+.cover-b{
+  width:1280px;height:720px;position:relative;overflow:hidden;
+  background:#08080f;
+  display:flex;align-items:stretch;
+  border-radius:12px;
+}
+.cover-b .left{
+  flex:1;display:flex;flex-direction:column;justify-content:center;
+  padding:80px 70px;position:relative;z-index:1;
+}
+.cover-b .right{
+  width:420px;flex-shrink:0;
+  display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+  padding:80px 60px;
+  background:rgba(139,92,246,.06);
+  border-left:1px solid rgba(139,92,246,.15);
+  position:relative;z-index:1;
+}
+.cover-b::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse 800px 600px at 30% 50%, rgba(139,92,246,.1), transparent 60%);
+}
+.cover-b .tag{
+  font-size:10px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;
+  color:#8B5CF6;margin-bottom:20px;
+  display:flex;align-items:center;gap:10px;
+}
+.cover-b .tag::before{content:"";width:28px;height:1px;background:#8B5CF6;}
+.cover-b h1{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:72px;
+  color:#fff;line-height:1;letter-spacing:-.02em;margin-bottom:16px;
+}
+.cover-b h1 span{
+  background:linear-gradient(90deg,#6366F1,#A855F7);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.cover-b .sub{
+  font-size:18px;color:rgba(255,255,255,.4);font-weight:400;
+  max-width:420px;line-height:1.6;
+}
+.cover-b .right-title{
+  font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(255,255,255,.25);margin-bottom:24px;
+}
+.cover-b .day{
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:14px;
+}
+.cover-b .day-n{
+  font-family:'Syne',sans-serif;font-size:11px;font-weight:800;
+  color:rgba(139,92,246,.5);width:24px;flex-shrink:0;
+}
+.cover-b .day-txt{font-size:12px;color:rgba(255,255,255,.4);font-weight:400;}
+.cover-b .day-txt strong{color:rgba(255,255,255,.75);font-weight:500;}
+.cover-b .sep{height:1px;background:rgba(255,255,255,.05);margin:20px 0;}
+.cover-b .price-area{margin-top:4px;}
+.cover-b .price-big{
+  font-family:'Syne',sans-serif;font-size:48px;font-weight:800;color:#fff;
+  line-height:1;margin-bottom:6px;
+}
+.cover-b .price-sub{font-size:11px;color:rgba(255,87,87,.65);font-weight:500;letter-spacing:.04em;}
+.cover-b .line-v{
+  position:absolute;top:0;right:420px;bottom:0;width:1px;
+  background:linear-gradient(180deg,transparent,rgba(139,92,246,.4),transparent);
+}
+</style>
+</head>
+<body>
+
+<div class="cover-wrap">
+  <div class="label">Version A — Centré · Impact</div>
+  <div class="cover-a">
+    <div class="noise"></div>
+    <div class="inner">
+      <div class="badge"><span class="badge-dot"></span>Prix de lancement fondateur</div>
+      <h1>Setter en <em>7 Jours</em></h1>
+      <div class="sub">Du zéro à ton premier RDV booké.</div>
+      <div class="pills">
+        <div class="pill">J1 — Comprendre le métier</div>
+        <div class="pill">J2 — Mindset</div>
+        <div class="pill">J3 — Routine</div>
+        <div class="pill">J4 — Prospection</div>
+        <div class="pill">J5 — Conversation</div>
+        <div class="pill">J6 — Booking</div>
+        <div class="pill">J7 — Choisir son offre</div>
+      </div>
+      <div class="price-block">
+        <div class="price">47€</div>
+        <div class="price-note">Une fois. À vie.<br><strong>Avant le lancement à 1 000€</strong></div>
+      </div>
+    </div>
+    <div class="line"></div>
+  </div>
+</div>
+
+<div class="cover-wrap">
+  <div class="label">Version B — Split · Programme visible</div>
+  <div class="cover-b">
+    <div class="left">
+      <div class="tag">Setter en 7 Jours</div>
+      <h1>Du zéro au<br><span>premier RDV.</span></h1>
+      <div class="sub">La méthode complète pour générer tes premiers revenus en ligne — sans audience, sans produit, sans investissement.</div>
+    </div>
+    <div class="line-v"></div>
+    <div class="right">
+      <div class="right-title">Le programme</div>
+      <div class="day"><div class="day-n">J1</div><div class="day-txt"><strong>Comprendre le métier</strong></div></div>
+      <div class="day"><div class="day-n">J2</div><div class="day-txt"><strong>Le mindset qui tient</strong></div></div>
+      <div class="day"><div class="day-n">J3</div><div class="day-txt"><strong>La routine d'exécution</strong></div></div>
+      <div class="day"><div class="day-n">J4</div><div class="day-txt"><strong>Prospecter & premier contact</strong></div></div>
+      <div class="day"><div class="day-n">J5</div><div class="day-txt"><strong>Mener la conversation</strong></div></div>
+      <div class="day"><div class="day-n">J6</div><div class="day-txt"><strong>Poser ton premier RDV</strong></div></div>
+      <div class="day"><div class="day-n">J7</div><div class="day-txt"><strong>Choisir pour qui travailler</strong></div></div>
+      <div class="sep"></div>
+      <div class="price-area">
+        <div class="price-big">47€</div>
+        <div class="price-sub">⚠ Prix de lancement — avant 1 000€</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
