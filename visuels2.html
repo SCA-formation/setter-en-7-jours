@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visuels SCA — Pack 2</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #050508;
+    color: white;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+  }
+
+  h1 {
+    color: #9B7FFF;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: -40px;
+    text-align: center;
+  }
+
+  .card {
+    width: min(540px, 95vw);
+    height: min(540px, 95vw);
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+
+  /* ===== CARTE 6 — CITATION IMMERSIVE ===== */
+  .card6 {
+    background: #08060F;
+  }
+
+  .card6 .noise {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+
+  .card6 .gradient-orb {
+    position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(139,62,255,0.4) 0%, rgba(200,50,255,0.1) 40%, transparent 70%);
+    top: -80px; left: -80px;
+  }
+
+  .card6 .gradient-orb2 {
+    position: absolute;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(255,100,200,0.15) 0%, transparent 65%);
+    bottom: -60px; right: -40px;
+  }
+
+  .card6 .line-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(139,62,255,0.8), transparent);
+  }
+
+  .card6 .line-bottom {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(200,50,255,0.5), transparent);
+  }
+
+  .card6 .content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 52px;
+  }
+
+  .card6 .quote-mark {
+    font-size: 80px;
+    line-height: 0.6;
+    color: rgba(139,62,255,0.4);
+    font-family: Georgia, serif;
+    margin-bottom: 24px;
+  }
+
+  .card6 .quote-text {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+  }
+
+  .card6 .quote-text em {
+    font-style: normal;
+    background: linear-gradient(135deg, #A78BFA, #F472B6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card6 .quote-author {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .card6 .badge-bottom {
+    position: absolute;
+    bottom: 36px;
+    right: 36px;
+    background: rgba(139,62,255,0.15);
+    border: 1px solid rgba(139,62,255,0.3);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #C084FC;
+    letter-spacing: 0.08em;
+  }
+
+  /* ===== CARTE 7 — CHECKLIST PREMIUM ===== */
+  .card7 {
+    background: linear-gradient(160deg, #090614 0%, #130A2A 60%, #0D0820 100%);
+  }
+
+  .card7 .mesh {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 80%, rgba(139,62,255,0.12) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(236,72,153,0.08) 0%, transparent 50%);
+  }
+
+  .card7 .content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px;
+  }
+
+  .card7 .eyebrow {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #A855F7;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card7 .eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px; height: 2px;
+    background: #A855F7;
+    border-radius: 2px;
+  }
+
+  .card7 .title {
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+  }
+
+  .card7 .checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .card7 .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .card7 .check-box {
+    width: 22px; height: 22px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #7C3AED, #A855F7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    box-shadow: 0 0 12px rgba(139,62,255,0.4);
+  }
+
+  .card7 .check-box svg {
+    width: 12px; height: 12px;
+  }
+
+  .card7 .check-text {
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .card7 .check-text strong { color: white; }
+
+  .card7 .footer-pill {
+    position: absolute;
+    bottom: 32px;
+    left: 48px;
+    right: 48px;
+    background: linear-gradient(135deg, rgba(124,58,237,0.25), rgba(168,85,247,0.15));
+    border: 1px solid rgba(168,85,247,0.25);
+    border-radius: 12px;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card7 .footer-pill .left { font-size: 13px; color: rgba(255,255,255,0.6); }
+  .card7 .footer-pill .right { font-size: 16px; font-weight: 900; color: #C084FC; }
+
+  /* ===== CARTE 8 — TIMELINE ===== */
+  .card8 {
+    background: #08060F;
+    position: relative;
+  }
+
+  .card8 .bg-glow {
+    position: absolute;
+    width: 100%; height: 50%;
+    background: radial-gradient(ellipse at 50% 0%, rgba(139,62,255,0.2) 0%, transparent 70%);
+    top: 0;
+  }
+
+  .card8 .content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 44px;
+  }
+
+  .card8 .top {
+    margin-bottom: 28px;
+  }
+
+  .card8 .top .label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #A855F7;
+    margin-bottom: 8px;
+  }
+
+  .card8 .top .title {
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .card8 .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    flex: 1;
+  }
+
+  .card8 .t-item {
+    display: flex;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .card8 .t-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 32px;
+    flex-shrink: 0;
+  }
+
+  .card8 .t-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7C3AED, #A855F7);
+    box-shadow: 0 0 10px rgba(139,62,255,0.6);
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .card8 .t-line {
+    width: 2px;
+    background: linear-gradient(180deg, rgba(139,62,255,0.4), rgba(139,62,255,0.1));
+    flex: 1;
+    margin: 4px 0;
+  }
+
+  .card8 .t-item:last-child .t-line { display: none; }
+
+  .card8 .t-content {
+    padding-bottom: 18px;
+    flex: 1;
+  }
+
+  .card8 .t-day {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #A855F7;
+    margin-bottom: 3px;
+  }
+
+  .card8 .t-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.4;
+  }
+
+  .card8 .t-text strong { color: white; }
+
+  /* ===== CARTE 9 — DARK LUXURY PRICE ===== */
+  .card9 {
+    background: #06040D;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card9 .aurora {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(120,40,255,0.35) 0%, transparent 50%),
+      radial-gradient(ellipse at 70% 80%, rgba(200,40,200,0.2) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(60,0,120,0.3) 0%, transparent 60%);
+  }
+
+  .card9 .grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(139,62,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(139,62,255,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .card9 .content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 44px;
+  }
+
+  .card9 .gold-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, rgba(245,200,66,0.15), rgba(245,200,66,0.05));
+    border: 1px solid rgba(245,200,66,0.3);
+    color: #F5C842;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+
+  .card9 .main-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+
+  .card9 .price-display {
+    margin: 8px 0 20px;
+  }
+
+  .card9 .price-now {
+    font-size: 96px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, #A78BFA 0%, #E879F9 50%, #F472B6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card9 .price-sup {
+    font-size: 32px;
+    vertical-align: top;
+    margin-top: 16px;
+    display: inline-block;
+  }
+
+  .card9 .price-vs {
+    font-size: 14px;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 24px;
+  }
+
+  .card9 .price-vs span {
+    text-decoration: line-through;
+  }
+
+  .card9 .features {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+
+  .card9 .feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .card9 .feature-icon {
+    font-size: 18px;
+  }
+
+  .card9 .feature-text {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  .card9 .cta-pill {
+    background: linear-gradient(135deg, #7C3AED, #A855F7);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 36px;
+    border-radius: 100px;
+    letter-spacing: 0.02em;
+    box-shadow: 0 0 30px rgba(124,58,237,0.5), 0 0 60px rgba(124,58,237,0.2);
+  }
+
+  /* ===== CARTE 10 — MINDSET ===== */
+  .card10 {
+    background: #07050E;
+    position: relative;
+  }
+
+  .card10 .diagonal {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 55%;
+    background: linear-gradient(160deg, rgba(124,58,237,0.15) 0%, transparent 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+  }
+
+  .card10 .orb {
+    position: absolute;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(124,58,237,0.2) 0%, transparent 65%);
+    top: -100px; right: -100px;
+  }
+
+  .card10 .content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 48px;
+  }
+
+  .card10 .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+  }
+
+  .card10 .tag {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #A855F7;
+    background: rgba(168,85,247,0.1);
+    border: 1px solid rgba(168,85,247,0.25);
+    padding: 5px 12px;
+    border-radius: 100px;
+  }
+
+  .card10 .num {
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(135deg, rgba(167,139,250,0.3), rgba(232,121,249,0.15));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card10 .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .card10 .big-statement {
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  .card10 .big-statement span {
+    background: linear-gradient(135deg, #A78BFA, #E879F9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card10 .desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+    max-width: 380px;
+  }
+
+  .card10 .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .card10 .bottom-brand {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+  }
+
+  .card10 .bottom-cta {
+    font-size: 13px;
+    font-weight: 700;
+    color: #C084FC;
+  }
+
+  .hint {
+    font-size: 12px;
+    color: rgba(255,255,255,0.2);
+    text-align: center;
+    margin-top: -40px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Visuels SCA — Pack 2 · Cmd+Shift+4 pour capturer</h1>
+
+<!-- CARTE 6 — CITATION -->
+<div class="card card6">
+  <div class="noise"></div>
+  <div class="gradient-orb"></div>
+  <div class="gradient-orb2"></div>
+  <div class="line-top"></div>
+  <div class="line-bottom"></div>
+  <div class="content">
+    <div class="quote-mark">"</div>
+    <div class="quote-text">
+      Le setting c'est pas un side hustle.<br>
+      C'est un <em>vrai métier</em> que tu peux maîtriser<br>en moins d'un mois.
+    </div>
+    <div class="quote-author">SCA — Setter Croissance Accélérée</div>
+  </div>
+  <div class="badge-bottom">Lien en bio · 47€</div>
+</div>
+
+<!-- CARTE 7 — CHECKLIST -->
+<div class="card card7">
+  <div class="mesh"></div>
+  <div class="content">
+    <div class="eyebrow">Le setting c'est pour toi si</div>
+    <div class="title">Tu coches au moins<br>3 de ces cases :</div>
+    <div class="checklist">
+      <div class="check-item">
+        <div class="check-box">
+          <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="check-text">Tu veux <strong>travailler depuis ton téléphone</strong></div>
+      </div>
+      <div class="check-item">
+        <div class="check-box">
+          <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="check-text">Tu veux <strong>gagner de l'argent sans créer de contenu</strong></div>
+      </div>
+      <div class="check-item">
+        <div class="check-box">
+          <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="check-text">Tu es à l'aise pour <strong>communiquer par message</strong></div>
+      </div>
+      <div class="check-item">
+        <div class="check-box">
+          <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="check-text">Tu veux des <strong>résultats concrets en moins de 2 mois</strong></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-pill">
+    <div class="left">SCA · Première version</div>
+    <div class="right">47€ →</div>
+  </div>
+</div>
+
+<!-- CARTE 8 — TIMELINE -->
+<div class="card card8">
+  <div class="bg-glow"></div>
+  <div class="content">
+    <div class="top">
+      <div class="label">Programme jour par jour</div>
+      <div class="title">Ce qui se passe en 7 jours avec SCA</div>
+    </div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-left"><div class="t-dot"></div><div class="t-line"></div></div>
+        <div class="t-content"><div class="t-day">Jour 1–2</div><div class="t-text"><strong>Comprendre le métier & le mindset.</strong> Tu sais enfin ce qu'est vraiment un setter.</div></div>
+      </div>
+      <div class="t-item">
+        <div class="t-left"><div class="t-dot"></div><div class="t-line"></div></div>
+        <div class="t-content"><div class="t-day">Jour 3</div><div class="t-text"><strong>Routine d'exécution.</strong> 1h par jour, structurée, efficace.</div></div>
+      </div>
+      <div class="t-item">
+        <div class="t-left"><div class="t-dot"></div><div class="t-line"></div></div>
+        <div class="t-content"><div class="t-day">Jour 4–5</div><div class="t-text"><strong>Premiers messages envoyés.</strong> Avec un script qui fonctionne.</div></div>
+      </div>
+      <div class="t-item">
+        <div class="t-left"><div class="t-dot"></div><div class="t-line"></div></div>
+        <div class="t-content"><div class="t-day">Jour 6–7</div><div class="t-text"><strong>1er RDV posé.</strong> Et tu sais pour qui travailler.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CARTE 9 — PRIX LUXE -->
+<div class="card card9">
+  <div class="aurora"></div>
+  <div class="grid"></div>
+  <div class="content">
+    <div class="gold-badge">✦ Accès fondateur</div>
+    <div class="main-title">Les fondations complètes<br>du setting. Maintenant.</div>
+    <div class="price-display">
+      <div class="price-now"><span class="price-sup">€</span>47</div>
+    </div>
+    <div class="price-vs">Formation complète avec vidéos : <span>1 000€</span></div>
+    <div class="features">
+      <div class="feature"><div class="feature-icon">📱</div><div class="feature-text">Accès<br>immédiat</div></div>
+      <div class="feature"><div class="feature-icon">♾️</div><div class="feature-text">À<br>vie</div></div>
+      <div class="feature"><div class="feature-icon">🎯</div><div class="feature-text">30+<br>leçons</div></div>
+      <div class="feature"><div class="feature-icon">🔒</div><div class="feature-text">Paiement<br>sécurisé</div></div>
+    </div>
+    <div class="cta-pill">Accéder maintenant →</div>
+  </div>
+</div>
+
+<!-- CARTE 10 — MINDSET -->
+<div class="card card10">
+  <div class="diagonal"></div>
+  <div class="orb"></div>
+  <div class="content">
+    <div class="top-row">
+      <div class="tag">Mindset</div>
+      <div class="num">01</div>
+    </div>
+    <div class="main">
+      <div class="big-statement">
+        Le problème c'est pas<br>ton niveau.<br>C'est ton <span>absence de méthode.</span>
+      </div>
+      <div class="desc">
+        Tout le monde peut devenir setter. Ce qui fait la différence, c'est d'avoir un système clair à suivre dès le premier jour.
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="bottom-brand">SCA Formation</div>
+      <div class="bottom-cta">Lien en bio · 47€ →</div>
+    </div>
+  </div>
+</div>
+
+<p class="hint">Pack 2 — 5 visuels supplémentaires · Cmd+Shift+4 pour capturer</p>
+
+</body>
+</html>
